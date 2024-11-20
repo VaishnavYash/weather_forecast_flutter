@@ -16,6 +16,13 @@ class _HomePageState extends State<HomePage> {
   final searchBoxTextController = TextEditingController();
   final cityListProvider = Management();
   final favListProvider = Favourite();
+
+  @override
+  void dispose() {
+    super.dispose();
+    searchBoxTextController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +36,10 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              padding: const EdgeInsets.symmetric(
+                vertical: 10,
+                horizontal: 20,
+              ),
               child: Observer(
                 builder: (context) {
                   return Row(
@@ -70,6 +80,8 @@ class _HomePageState extends State<HomePage> {
                               weatherStore.isException = false;
                             }
                           }
+
+                          searchBoxTextController.text = '';
                         },
                         label: const Icon(Icons.add, size: 20),
                       ),

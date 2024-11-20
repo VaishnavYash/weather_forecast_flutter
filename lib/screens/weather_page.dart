@@ -69,6 +69,10 @@ class WeatherPage extends StatelessWidget {
                             Text(
                               DateFormat('hh:mm').format(timeOfPlace!) +
                                   (timeOfPlace.hour >= 12 ? ' PM' : ' AM'),
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 40,
+                              ),
                             ),
                             if (timeOfPlace.hour < 6 || timeOfPlace.hour > 18)
                               Image.asset(
